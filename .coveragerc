@@ -1,0 +1,7 @@
+[run]
+source = 
+    urls/
+omit =
+    SaveMe/
+    urls/migrations/*
+    urls/apps.*

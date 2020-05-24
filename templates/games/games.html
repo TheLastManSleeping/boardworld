@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+{% load static %}
+{% load game_tag %}
+
+
+<html lang="ru">
+<head>
+    <title>BoardWorld</title>
+    <!-- //Meta tag Keywords -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- //Meta tag Keywords -->
+    <!-- Custom-Files -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <!-- Bootstrap-Core-CSS -->
+    <!--/ Style-CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all">
+    <!--// Style-CSS -->
+    <!-- font-awesome-icons -->
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <!-- /Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900"
+          rel="stylesheet">
+    <!-- //Fonts -->
+</head>
+
+<body>
+
+<div id="page" class="page"><!-- mian-content -->
+    <div class="main-banner inner bg bg1" id="home">
+        <!-- header -->
+        <header class="header">
+            <div class="container-fluid px-lg-5">
+                <!-- nav -->
+                <nav class="py-4">
+                    <div id="logo">
+                        <h1><a href="/" class="editContent"
+                               style="outline: none; outline-offset: -2px; cursor: inherit; color: rgb(255, 255, 255); font-size: 40px; background-color: rgba(0, 0, 0, 0); font-family: &quot;Source Sans Pro&quot;, sans-serif;">BoardWorld</a>
+                        </h1>
+                    </div>
+
+                    <ul class="menu mt-2">
+                        {% if user.is_authenticated %}
+                            <li><a href="/accounts/logout/"
+                                   style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">Выход</a>
+                            </li>
+                        {% else %}
+                            <li><a href="/accounts/login/"
+                                   style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">Вход</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                <!-- //nav -->
+            </div>
+        </header>
+    </div>
+    <!--//main-content-->
+    <!---->
+    <ol class="breadcrumb editContent">
+    </ol>
+    <!---->
+    <!-- banner -->
+    <section class="ab-info-main py-md-5 py-4 editContent" style="padding-left: 3rem; padding-right: 3rem;">
+        <div class="container-fluid py-md-3">
+            <div class="row">
+                <div class="side-bar col-lg-3">
+
+                    <div class="search-bar w3layouts-newsletter">
+                        <h3 class="sear-head editContent">Поиск игры</h3>
+                        <form action="{% url 'search' %}" method="get" class="d-flex editContent">
+                            <input type="search" placeholder="Введите название..." name="q" class="form-control"
+                                   required="">
+                            <button type="submit" class="btn1 btn">
+                                <span class="fa fa-search" aria-hidden="true"></span>
+                            </button>
+                        </form>
+                    </div>
+                    <!--preference -->
+                    <div class="left-side my-4">
+                        <h3 class="sear-head editContent">Категории</h3>
+                        <ul class="w3layouts-box-list">
+                            {% get_cat as cats %}
+                            {% for categories in cats %}
+                                {{ categories.name }}
+                                <p class="editContent" style="outline: none; cursor: inherit;">
+                                    {{ categories.description }}
+                                </p>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- // preference -->
+                    <!-- discounts -->
+                    <!-- //discounts -->
+                    <!-- reviews -->
+                    <!-- //reviews -->
+                    <!-- deals -->
+                    <!-- //deals -->
+
+                </div>
+                <!-- //product left -->
+                <!-- product right -->
+                <div class="left-ads-display col-lg-9">
+                    <div class="row">
+                        {% for game in games_list %}
+                            <div class="col-md-4 product-men">
+                                <div class="product-shoe-info editContent text-center mt-lg-4">
+                                    <div class="men-thumb-item">
+                                        <img src="{{ game.picture.url }}" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="item-info-product">
+                                        <h4 class="">
+                                            <a href="{{ game.get_absolute_url }}" class="editContent">
+                                                {{ game.name }}
+                                            </a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <!--<div class="grid-img-right mt-4 text-right bg bg1" >
+                        <span class="money editContent" >Flat 50% Off</span>
+                        <a href="moviesingle.html" class="btn" >Now</a>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //contact -->
+    <!-- footer -->
+
+    <!-- //footer -->
+
+</div>
+</body>
+</html>

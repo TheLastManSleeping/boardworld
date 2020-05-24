@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block styles %}
+    <link rel="stylesheet" href="/static/css/style.css"> 
+{% endblock styles %}
+{% block title %}Вы успешно вышли из аккуанута{% endblock title %}
+{% block content %}
+    <br/>
+    <br/>
+    <p>Logged out!</p>  
+
+    <a href="{% url 'login' %}">Нажмите здесь, чтобы войти снова.</a>
+{% endblock %}

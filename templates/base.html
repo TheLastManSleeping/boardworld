@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>BoardWorld</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styl.css' %}" type="text/css" media="all">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all">
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900"
+          rel="stylesheet">
+</head>
+
+<body>
+<!-- Navbar (sit on top) -->
+
+
+    <div class="main-banner inner bg bg1" id="home">
+        <!-- header -->
+        <header class="header">
+            <div class="container-fluid px-lg-5">
+                <!-- nav -->
+                <nav class="py-4">
+                    <div id="logo">
+                        <h1><a href="/" class="editContent"
+                               style="outline: none; outline-offset: -2px; cursor: inherit; color: rgb(255, 255, 255); font-size: 40px; background-color: rgba(0, 0, 0, 0); font-family: &quot;Source Sans Pro&quot;, sans-serif;">BoardWorld</a>
+                        </h1>
+                    </div>
+
+                    <ul class="menu mt-2">
+                        <li class="active"><a href="/">Главная</a></li>
+                        {% if user.is_authenticated %}
+                            <li><a href="/accounts/logout/"
+                                   style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">Выход</a>
+                            </li>
+                        {% else %}
+                            <li><a href="/accounts/login/"
+                                   style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">Вход</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                <!-- //nav -->
+            </div>
+        </header>
+    </div>
+
+
+<!-- Page content -->
+<div class="content padding" style="max-width:1564px">
+    <br/>
+    <br/>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

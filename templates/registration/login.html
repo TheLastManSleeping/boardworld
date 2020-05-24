@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block styles %}
+    <link rel="stylesheet" href="/static/css/style.css"> 
+{% endblock styles %}
+{% block title %}BoardWorld | Sign in {% endblock title %}
+{% block content %}
+    <br/>
+    <br/>
+    {% if form.errors %}
+        <label style="color: red;">Username and password didn't match. Please try again.</label>
+    {% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+            <p>Your account doesn't have access to this page. To proceed,
+            please login with an account that has access.</p>
+        {% else %}
+            <p>Please login to see this page.</p>
+        {% endif %}
+    {% endif %}
+    
+    {% if user.is_authenticated %}
+        <p>Вы уже вошли.</p>
+    {% else %}
+        <!-- <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+            </table>
+
+            <input type="submit" value="login" />
+            <input type="hidden" name="next" value="{{ next }}" />
+        </form> -->
+
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+              <p>
+                {{ field.label_tag }}<br>
+                {{ field }}
+              </p>
+            {% endfor %}
+            <button type="submit">Войти</button>
+          </form>
+
+        {# Assumes you setup the password_reset view in your URLconf #}
+        <a class="bar-item button" href="/accounts/signup">Создать аккаунт</a>
+    {% endif %}
+
+{% endblock %}

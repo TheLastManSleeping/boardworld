@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: static-vars
+Version: 0.1.0
+Summary: <Enter a one-sentence description of this project here.>
+Home-page: https://github.com/etijskens/static_vars
+License: MIT
+Keywords: packaging,poetry
+Author: Engelbert Tijskens
+Author-email: engelbert.tijskens@uantwerpen.be
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Project-URL: Repository, https://github.com/etijskens/static_vars
+Description-Content-Type: text/x-rst
+
+===========
+static_vars
+===========
+
+A decorator for adding static variables to a method.
+
+Typical use:
+
+.. code-block:: python
+
+    from static_vars import static_vars
+
+    @static_vars(counter=0)
+    def foo():
+        foo.counter += 1
+
+    foo()
+    foo()
+    assert foo.counter==2
+    foo.counter = 0
+    foo()
+    assert foo.counter==1
+
+* Free software: MIT license
+* Documentation: https://static-vars.readthedocs.io.
+
+
