@@ -42,7 +42,86 @@
                         </h1>
                     </div>
 
+                    <ul class="menu mt-2">
+                        {% if user.is_authenticated %}
+                            <li><a href="/accounts/logout/"
+                                   style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">Выход</a>
+                            </li>
+                        {% else %}
+                            <li><a href="/accounts/login/"
+                                   style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">Вход</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                <!-- //nav -->
+            </div>
+        </header>
+    </div>
+    <!--//main-content-->
+    <!---->
+    <ol class="breadcrumb editContent">
+    </ol>
+    <!---->
+    <!-- banner -->
+    <section class="ab-info-main py-md-5 py-4 editContent" style="padding-left: 3rem; padding-right: 3rem;">
+        <div class="container-fluid py-md-3">
+            <div class="row">
+                <div class="side-bar col-lg-3">
 
+                    <div class="search-bar w3layouts-newsletter">
+                        <h3 class="sear-head editContent">Поиск игры</h3>
+                        <form action="{% url 'search' %}" method="get" class="d-flex editContent">
+                            <input type="search" placeholder="Введите название..." name="q" class="form-control"
+                                   required="">
+                            <button type="submit" class="btn1 btn">
+                                <span class="fa fa-search" aria-hidden="true"></span>
+                            </button>
+                        </form>
+                    </div>
+                    <!--preference -->
+                    <div class="left-side my-4">
+                        <h3 class="sear-head editContent">Категории</h3>
+                        <ul class="w3layouts-box-list">
+                            {% get_cat as cats %}
+                            {% for categories in cats %}
+                                {{ categories.name }}
+                                <p class="editContent" style="outline: none; cursor: inherit;">
+                                    {{ categories.description }}
+                                </p>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- // preference -->
+                    <!-- discounts -->
+                    <!-- //discounts -->
+                    <!-- reviews -->
+                    <!-- //reviews -->
+                    <!-- deals -->
+                    <!-- //deals -->
+
+                </div>
+                <!-- //product left -->
+                <!-- product right -->
+                <div class="left-ads-display col-lg-9">
+                    <div class="row">
+                        {% for game in games_list %}
+                            <div class="col-md-4 product-men">
+                                <div class="product-shoe-info editContent text-center mt-lg-4">
+                                    <div class="men-thumb-item">
+                                        <img src="{{ game.picture.url }}" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="item-info-product">
+                                        <h4 class="">
+                                            <a href="{{ game.get_absolute_url }}" class="editContent">
+                                                {{ game.name }}
+                                            </a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
                     <!--<div class="grid-img-right mt-4 text-right bg bg1" >
                         <span class="money editContent" >Flat 50% Off</span>
                         <a href="moviesingle.html" class="btn" >Now</a>
