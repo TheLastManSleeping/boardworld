@@ -33,6 +33,9 @@
                     <ul class="menu mt-2">
                         <li class="active"><a href="/">Главная</a></li>
                         {% if user.is_authenticated %}
+                            <li><a href="/accounts/profile/"
+                                   style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">Профиль</a>
+                            </li>
                             <li><a href="/accounts/logout/"
                                    style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">Выход</a>
                             </li>

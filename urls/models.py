@@ -1,10 +1,24 @@
+from allauth.account.views import email
+from django.core import mail
+from django.core.mail import send_mail
 from django.db import models
 
 # Create your models here.
+from django.db.backends import postgresql
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.urls import reverse
 from django.contrib.auth.models import User
+from faker.providers import address
+
+from SaveMe.settings import EMAIL_HOST
+
+
+class CommonInfo(models.Model):
+    name = models.CharField("Название", max_length=50, db_index=True)
+
+    class Meta:
+        abstract = True
 
 
 
@@ -14,11 +28,13 @@ class Profile(models.Model):
     picture = models.ImageField("Картинка", upload_to="urls/", default='te2.jpg')
     # other fields...
 
+
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
     instance.profile.save()
+
 
 class Categories(models.Model):
     """Категории гамесов"""
@@ -33,7 +49,7 @@ class Categories(models.Model):
         verbose_name_plural = "Категории"
 
 
-class Publisher(models.Model):
+class Publisher(CommonInfo):
     name = models.CharField("Название", max_length=50, db_index=True)
     description = models.TextField("Описание")
     picture = models.ImageField("Картинка", upload_to="urls/")
@@ -43,8 +59,8 @@ class Publisher(models.Model):
         verbose_name_plural = "Издатели"
 
 
-class Games(models.Model):
-    name = models.CharField("Название", max_length=50, db_index=True)
+
+class Games(CommonInfo):
     categories = models.ManyToManyField(Categories, verbose_name="категория")
     description = models.TextField("Описание")
     picture = models.ImageField("Картинка", upload_to="urls/")
@@ -74,3 +90,35 @@ class Reviews(models.Model):
     class Meta:
         verbose_name = "Отзыв"
         verbose_name_plural = "Отзывы"
+
+
+class LostMail(object):
+
+    def __init__(self):
+        temp = models.CharField("Текст", max_length=400)
+        send_mail.queue.put(temp)
+
+    def __del__(self):
+        send_mail(EMAIL_HOST, [address], False)
+
+
+class MetaSingleton(type):
+    _instances = {}
+
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(MetaSingleton, cls).__call__(*args, **kwargs)
+        return cls._instances[cls]
+
+
+class DB(metaclass=MetaSingleton):
+    connection = None
+
+    def __init__(self):
+        self.cursorobj = self.connection.cursor()
+
+    def connect(self):
+        if self.connection is None:
+            self.connection = postgresql.connect("postgresql")
+        return self.cursorobj
+

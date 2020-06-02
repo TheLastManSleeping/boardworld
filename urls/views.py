@@ -16,7 +16,7 @@ from django.views.generic import DetailView, ListView
 from django.views.generic.base import View, TemplateView
 from . import email
 from .models import Games, Profile
-from .forms import ReviewForm, SignUpForm, SendEmailForm
+from .forms import ReviewForm, SignUpForm, SendEmailForm, SetPasswordForm
 from .models import Publisher
 from .tokens import account_activation_token
 
@@ -146,21 +146,51 @@ class SendEmailView(UserPassesTestMixin, View):
 
 #     return render(request, 'registration/profile.html')
 
-class Profile(View):
+# class Profile(View):
+#     def get(self, request):
+#         return render(request, 'registration/profile.html')
+#
+#     def post(self, request):
+#         if 'picture' in request.FILES:
+#             profile = Profile.objects.get(user=request.user)
+#             profile.picture = request.FILES['picture']
+#             profile.save()
+#
+#             return HttpResponse('Изображение успешно загружено')
+#
+#         return render(request, 'registration/profile.html')
+#
+#
+#
+# class ProfilePage(TemplateView):
+#     template_name = "registration/profile.html"
+
+
+class ProfileView(LoginRequiredMixin, View):
+
     def get(self, request):
-        return render(request, 'registration/profile.html')
-    
+        profile = Profile.objects.get(user=request.user)
+        form = SetPasswordForm(initial={'user': request.user})
+
+        return render(request, 'profile.html', {'form': form, 'profile': profile})
+
     def post(self, request):
-        if 'picture' in request.FILES:
-            profile = Profile.objects.get(user=request.user)
-            profile.picture = request.FILES['picture']
-            profile.save()
+        form = SetPasswordForm(request.POST)
+        profile = Profile.objects.get(user=request.user)
 
-            return HttpResponse('Изображение успешно загружено')
+        if form.is_valid():
+            try:
+                validate_password(form.cleaned_data['new_password1'])
+            except ValidationError as e:
+                form.add_error('new_password1', e)
+                return render(request, 'profile.html', {'form': form, 'profile': profile})
 
-        return render(request, 'registration/profile.html')
+            user = request.user
+            user.set_password(form.cleaned_data['new_password1'])
+            user.save()
+            update_session_auth_hash(request, user)
 
+            return render(request, 'profile.html',
+                          {'form': form, 'profile': profile, 'message': 'Пароль успешно изменён'})
 
-
-class ProfilePage(TemplateView):
-    template_name = "registration/profile.html"
+        return render(request, 'profile.html', {'form': form, 'profile': profile})

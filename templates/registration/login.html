@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block styles %}
-    <link rel="stylesheet" href="/static/css/style.css"> 
+    <link rel="stylesheet" href="/static/css/style.css">
 {% endblock styles %}
 {% block title %}BoardWorld | Sign in {% endblock title %}
 {% block content %}
     <br/>
     <br/>
     {% if form.errors %}
-        <label style="color: red;">Username and password didn't match. Please try again.</label>
+        <label style="color: red;">Имя пользователя и пароль не совпадают. Пожалуйста, попробуйте еще раз.</label>
     {% endif %}
 
     {% if next %}
@@ -48,10 +48,12 @@
               </p>
             {% endfor %}
             <button type="submit">Войти</button>
+
           </form>
+        <p><a class="bar-item button" href="/accounts/signup">Создать аккаунт</a></p>
+        <p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
 
         {# Assumes you setup the password_reset view in your URLconf #}
-        <a class="bar-item button" href="/accounts/signup">Создать аккаунт</a>
     {% endif %}
 
 {% endblock %}

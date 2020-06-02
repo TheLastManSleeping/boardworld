@@ -71,23 +71,23 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/urls" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\SaveMe\urls" />
-      <recent name="E:\SaveMe\media" />
-      <recent name="E:\SaveMe" />
-      <recent name="E:\SaveMe\urls\templatetags" />
-      <recent name="E:\SaveMe\templates\games" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\SaveMe\urls" />
       <recent name="E:\SaveMe\static\images" />
       <recent name="E:\SaveMe" />
       <recent name="E:\SaveMe\templates\registration" />
       <recent name="E:\SaveMe\templates\games" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\SaveMe\templates" />
+      <recent name="E:\SaveMe\urls" />
+      <recent name="E:\SaveMe\media" />
+      <recent name="E:\SaveMe" />
+      <recent name="E:\SaveMe\urls\templatetags" />
     </key>
   </component>
   <component name="RunManager" selected="Django server.SaveMe">
@@ -105,6 +105,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="scratch_4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SaveMe" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -161,6 +183,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.scratch_4" />
         <item itemvalue="Python.scratch_3" />
         <item itemvalue="Python.test_views" />
       </list>
@@ -181,7 +204,9 @@
       <workItem from="1589554812007" duration="9442000" />
       <workItem from="1589817214463" duration="85854000" />
       <workItem from="1590229890091" duration="3357000" />
-      <workItem from="1590249520115" duration="38193000" />
+      <workItem from="1590249520115" duration="44647000" />
+      <workItem from="1590752266996" duration="21616000" />
+      <workItem from="1591035390150" duration="21278000" />
     </task>
     <servers />
   </component>
@@ -193,6 +218,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1588818878945" />
+    <state x="552" y="178" key="#Notifications" timestamp="1590409888823">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1590409888823" />
     <state x="350" y="312" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588819145297">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -209,22 +238,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590340444194" />
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1590334075436">
+    <state width="1877" height="128" key="GridCell.Tab.0.bottom" timestamp="1591089331804">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590334075436" />
-    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1590334075436">
+    <state width="1877" height="128" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591089331804" />
+    <state width="1877" height="128" key="GridCell.Tab.0.center" timestamp="1591089331804">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590334075436" />
-    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1590334075436">
+    <state width="1877" height="128" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591089331804" />
+    <state width="1877" height="128" key="GridCell.Tab.0.left" timestamp="1591089331804">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590334075436" />
-    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1590334075436">
+    <state width="1877" height="128" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591089331804" />
+    <state width="1877" height="128" key="GridCell.Tab.0.right" timestamp="1591089331804">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590334075436" />
+    <state width="1877" height="128" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591089331804" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1590141525498">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -249,18 +278,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="242" y="167" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590340796947" />
-    <state x="655" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1590249520771">
+    <state x="655" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1591037782861">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="655" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590249520771" />
+    <state x="655" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591037782861" />
     <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1588839593266">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1588839593266" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1590395883369">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1591070810627">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590395883369" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1591070810627" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -305,15 +334,11 @@
           <line>16</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/urls/views.py</url>
-          <line>153</line>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SaveMe$scratch_4.coverage" NAME="scratch_4 Coverage Results" MODIFIED="1591037784657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/SaveMe$test_views.coverage" NAME="test_views Coverage Results" MODIFIED="1590064528363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/SaveMe$scratch_3.coverage" NAME="scratch_3 Coverage Results" MODIFIED="1590229943294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
   </component>

@@ -1,7 +1,7 @@
 {% autoescape off %}
-Hi {{ user.username }},
+Здравствуй {{ user.username }},
 
-Пожалуйста, нажмите на ссылку ниже, чтобы подтвердить регистрацию:
+Пожалуйста, нажми на ссылку ниже, чтобы подтвердить регистрацию:
 
 http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
 {% endautoescape %}
