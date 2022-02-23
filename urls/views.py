@@ -14,7 +14,6 @@ from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.generic import DetailView, ListView
 from django.views.generic.base import View, TemplateView
-from . import email
 from .models import Games, Profile
 from .forms import ReviewForm, SignUpForm, SendEmailForm, SetPasswordForm
 from .models import Publisher
@@ -64,31 +63,6 @@ class SearchView(ListView):
         context["q"] = self.request.GET.get("q")
         return context
 
-
-def signup(request):
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            user.is_active = False
-            user.save()
-            current_site = get_current_site(request)
-            subject = 'Activate Your Account'
-            message = render_to_string('registration/activation_email.html', {
-                'user': user,
-                'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': account_activation_token.make_token(user),
-            })
-            user.email_user(subject, message)
-            return redirect('activation_email_sent')
-    else:
-        form = SignUpForm()
-    return render(request, 'registration/register.html', {'form': form})
-
-
-def activation_email_sent(request):
-    return render(request, 'registration/activation_email_sent.html')
 
 
 def activate(request, uidb64, token):

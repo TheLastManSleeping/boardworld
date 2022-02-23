@@ -86,13 +86,8 @@ AUTH_PROFILE_MODULE = 'list.UserProfile'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME' : 'Atereqedqed',
-        'NAME': 'dffknggat46q61',
-        'USER': 'cvwnfrxatliuhg',
-        'PASSWORD': '4e939a9e4b6fc567aa88bb36c35b05fdd98b066a9f7c774eca4fc386e61000ad',
-        'HOST': 'ec2-52-201-55-4.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME' : 'At',
 
     }
 }
